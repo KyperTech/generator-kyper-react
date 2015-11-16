@@ -1,13 +1,12 @@
-# generator-webpack-redux-react
+# generator-kyper-react
 
-
-Generator for a webpack-redux-react project with sub-generators for Components, Containers(Redux linked component), as well as Redux Actions and Reducers.
+Generator for a React projects that use Redux and are bundled with Webpack. There are also sub-generators for Components, Containers(Redux linked component), as well as Redux Actions and Reducers.
 
 
 ## Getting Started
 1. Install yeoman if you don't have it: using `npm install -g yo`
 
-1. Install Generator:  `npm install -g generator-webpack-redux-react`
+1. Install Generator:  `npm install -g generator-kyper-react`
 
 
 ## Creating a project
@@ -15,8 +14,7 @@ Generator for a webpack-redux-react project with sub-generators for Components, 
 `mkdir myProject && cd myProject`
 
 2. Initiate the generator:
-```yo webpack-redux-react```
-
+```yo kyper-react```
 
 
 ## Sub generators
@@ -25,7 +23,7 @@ Generator for a webpack-redux-react project with sub-generators for Components, 
 
 #### Component
 
-To create a react component class named *Test* run: `yo webpack-redux-react:component Car`
+To create a react component class named *Test* run: `yo kyper-react:component Car`
 
 Creates a folder within `/components` that matches the name provided. Below is the result of the command above being run:
 
@@ -61,7 +59,7 @@ export default Car
 #### Container
 **NOTE:** Containers are synonymous with *Smart Components* and *Linked-State Components*
 
-To create a container named *Cars* run: `yo webpack-redux-react:container Cars`
+To create a container named *Cars* run: `yo kyper-react:container Cars`
 
 Creates a folder within `/containers` that matches the name provided. Below is the result of the command above being run:
 
@@ -113,7 +111,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Cars);
 
 #### Action
 [Actions](http://redux.js.org/docs/basics/Actions.html) are functions that are called from containers to make something happen to the state (i.e add a car).
-To create a set of actions (add, update, remove) for cars run: `yo webpack-redux-react:action cars`
+To create a set of actions (add, update, remove) for cars run: `yo kyper-react:action cars`
 
 Creates a folder within `/actions` that matches the name provided. Below is the result of the command above being run:
 
@@ -152,7 +150,7 @@ export function updateCars(cars) {
 
 #### Reducer
 [Reducers](http://redux.js.org/docs/basics/Reducers.html) listen for actions and modify specific pieces of the state accordingly. In this example we are creating a cars reducer that manages state.cars, which is stored as an array.
-`yo webpack-redux-react:reducer cars` then select array
+`yo kyper-react:reducer cars` then select array
 ```
 app/
 --/reducers
