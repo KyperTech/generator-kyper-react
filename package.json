@@ -1,0 +1,36 @@
+{
+  "name": "generator-kyper-react",
+  "version": "0.0.1",
+  "description": "Generator for React/Redux projects that includes sub generators for Actions, Reducers, Components, and Containers.",
+  "license": "MIT",
+  "main": "generators/app/index.js",
+  "files": [
+    "generators"
+  ],
+  "repository": "https://github.com/kypertech/generator-kyper-react",
+  "author": {
+    "name": "Scott",
+    "email": "",
+    "url": "https://github.com/prescottprue"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "kyper",
+    "webpack",
+    "redux",
+    "react",
+    "react-redux"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "lodash": "^3.10.1",
+    "yeoman-generator": "^0.21.1",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
