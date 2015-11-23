@@ -8,7 +8,7 @@ var appFolder = 'app';
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
     this.argument('name', { type: String, required: false });
-    this.appName = this.name || path.basename(process.cwd()) || 'webpack-redux-react-starter';
+    this.appName = this.name || path.basename(process.cwd()) || 'kyper-react-starter';
     this.appPath = this.env.options.appPath;
     this.version = "0.0.1";
   },
@@ -17,7 +17,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      chalk.red('Kyper React Generator')
+      'Welcome to the \n' + chalk.red('Kyper React Generator')
     ));
 
     var prompts = [{
@@ -47,7 +47,8 @@ module.exports = yeoman.generators.Base.extend({
       if(this.answers.includeMatter){
         this.copyFiles([
           {src: '_matter-helper.js', dest: 'app/helpers/matter.js'},
-          {src: '_profile-action.js', dest: 'app/actions/profile.js'}
+          {src: '_profile-action.js', dest: 'app/actions/profile.js'},
+          {src: '_matter-index-server.js', dest: 'lib/index-server.js'}
         ]);
       }
     },
@@ -55,6 +56,8 @@ module.exports = yeoman.generators.Base.extend({
       var projectFilesArray = [
         {src:'_package.json', dest: 'package.json'},
         {src:'webpack-dev.config.js'},
+        {src:'webpack-production.config.js'},
+        {src:'webpack-server-production.config.js'},
         {src:'webpack.config.js'},
         {src:'gitignore', dest: '.gitignore'},
         {src:'eslintrc', dest: '.eslintrc'},

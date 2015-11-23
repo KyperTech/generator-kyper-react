@@ -40,7 +40,7 @@
     "serve-static": "^1.10.0",
     "webpack": "^1.12.2",
     "extract-text-webpack-plugin": "^0.8.2",
-    "source-map-support": "^0.3.3",
+    "source-map-support": "^0.3.3"
   },
   "devDependencies": {
     "babel-core": "^5.8.22",

@@ -7,7 +7,7 @@ export const LOGOUT_RESPONSE = 'LOGOUT_RESPONSE';
 export const AUTH_ERR = 'AUTH_ERR';
 
 import Matter from 'kyper-matter';
-let matter = new Matter('<% name %>');
+let matter = new Matter('<%= appName %>');
 
 // Fetches a single user from Github API unless it is cached.
 // Relies on Redux Thunk middleware.
@@ -20,7 +20,6 @@ export function loadAccount(login, requiredFields = []) {
   };
 }
 export function attemptLogin(loginData) {
-  console.log('attempt login action', loginData);
  return {
    type: LOGIN_ATTEMPT,
    payload: loginData
@@ -28,20 +27,17 @@ export function attemptLogin(loginData) {
 }
 //Requires react-thunk
 export function login(loginData) {
-  console.log('login action called', loginData);
+  console.log('Login action called.');
   return (dispatch, getState) => {
-    console.log('distpatch function running.');
     dispatch(attemptLogin(loginData));
-    console.log('distpatch function running.');
     return matter.login(loginData)
     .then(loginRes => {
-      console.log('signup response');
+      console.log('Login response', loginRes);
       return dispatch(receiveLogin(loginData, loginRes));
     });
   }
 }
 export function receiveLogin(loginData, res) {
-  console.log('receive login called', loginData, res);
  return {
    type: LOGIN_RESPONSE,
    loginData: loginData,
@@ -60,8 +56,9 @@ export function signup(signupData) {
   return dispatch => {
     distpatch(attemptSignup(signupData));
     return matter.signup(action.payload)
-    .then((loginRes) => {
-      dispatch(receiveSignup(signupData, loginRes));
+    .then((signupRes) => {
+      console.log('Signup response', signupRes);
+      dispatch(receiveSignup(signupData, signupRes));
     }, (err) => {
       return {type: AUTH_ERR, payload: err};
     });

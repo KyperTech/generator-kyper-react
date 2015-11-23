@@ -82,8 +82,7 @@ function createWebpackConfig(options) {
 
   var resolve = {
     alias: {
-      assets: path.resolve(__dirname, '..', 'assets'),
-      'kyper-grout': path.resolve(__dirname, '..', 'node_modules/kyper-grout/dist/grout.bundle.js')
+      assets: path.resolve(__dirname, '..', 'assets')
     },
     extensions: ['', '.js']
   };
@@ -118,7 +117,6 @@ function createWebpackConfig(options) {
       loader: 'json'
     }
   ];
-
   return {
     bail: !options.dev,
     devtool: devtool,
@@ -135,3 +133,4 @@ function createWebpackConfig(options) {
     publicPath: publicPath
   };
 }
+module.exports = createWebpackConfig;

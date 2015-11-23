@@ -19,6 +19,6 @@ class MatterInstance {
 }
 
 //Create singleton instance of Matter using project name
-let matter = new MatterInstance('<% name %>', defaultOptions);
+let matter = new MatterInstance('<%= appName %>', defaultOptions);
 
 export default matter;
