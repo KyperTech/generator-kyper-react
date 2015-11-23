@@ -13,8 +13,11 @@ function renderIndex(options) {
     '' :
     options.appMarkup || '';
 
+  var appData = `<script>window.__INITIAL_STATE__ = ${JSON.stringify(options.appData)};</script>` && '';
+
   return indexMarkup
     .replace('<!-- app -->', appMarkup)
+    .replace('<!-- app-data -->', appData)
     .replace(
       '<!-- script -->',
       options.dev ?

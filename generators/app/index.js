@@ -17,7 +17,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      chalk.red('Webpack Redux React Generator')
+      chalk.red('Kyper React Generator')
     ));
 
     var prompts = [{

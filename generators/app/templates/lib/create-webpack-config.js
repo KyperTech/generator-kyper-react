@@ -16,7 +16,7 @@ function createWebpackConfig(options) {
   var devtool = options.dev ? 'eval-source-map' : 'sourcemap';
 
   var entry = options.entry || [
-    './app/index.js'
+    './app/client.js'
   ];
 
   if (options.dev) {
@@ -37,26 +37,26 @@ function createWebpackConfig(options) {
 
   var plugins = [
     new webpack.NoErrorsPlugin(),
-    new webpack.IgnorePlugin(/vertx/)
+    new webpack.IgnorePlugin(/vertx/),
+    new ExtractTextPlugin('style.[hash].css', {allChunks: true})
   ];
 
   if (options.dev) {
     plugins = plugins.concat(new webpack.HotModuleReplacementPlugin());
   } else {
-    // plugins = plugins.concat(new webpack.DefinePlugin({
-    //   'process.env': {
-    //     NODE_ENV: JSON.stringify('production')
-    //   }
-    // }));
+    plugins = plugins.concat(new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }));
   }
 
   if (options.target === 'node') {
-    // plugins = plugins.concat(
-    //   new webpack.BannerPlugin('require("source-map-support").install();',
-    //     {raw: true, entryOnly: false}));
+    plugins = plugins.concat(
+      new webpack.BannerPlugin('require("source-map-support").install();',
+        {raw: true, entryOnly: false}));
   } else {
     plugins = plugins.concat([
-      new ExtractTextPlugin('style.[hash].css', {allChunks: true}),
       new webpack.optimize.UglifyJsPlugin(),
       new webpack.optimize.DedupePlugin(),
       function() {
@@ -82,7 +82,8 @@ function createWebpackConfig(options) {
 
   var resolve = {
     alias: {
-      assets: path.resolve(__dirname, '..', 'assets')
+      assets: path.resolve(__dirname, '..', 'assets'),
+      'kyper-grout': path.resolve(__dirname, '..', 'node_modules/kyper-grout/dist/grout.bundle.js')
     },
     extensions: ['', '.js']
   };
@@ -102,7 +103,7 @@ function createWebpackConfig(options) {
         ['babel']
     },
     {
-      test: /\.scss$/,
+      test: /\.(scss|css)$/,
       loader: options.dev ?
         'style!' + cssLoaders
         :
@@ -134,5 +135,3 @@ function createWebpackConfig(options) {
     publicPath: publicPath
   };
 }
-
-module.exports = createWebpackConfig;
