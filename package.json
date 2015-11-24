@@ -1,6 +1,6 @@
 {
   "name": "generator-kyper-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generator for React/Redux projects that includes sub generators for Actions, Reducers, Components, and Containers.",
   "license": "MIT",
   "main": "generators/app/index.js",
