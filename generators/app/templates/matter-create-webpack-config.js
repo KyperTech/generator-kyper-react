@@ -82,7 +82,8 @@ function createWebpackConfig(options) {
 
   var resolve = {
     alias: {
-      assets: path.resolve(__dirname, '..', 'assets')
+      assets: path.resolve(__dirname, '..', 'assets'),
+      'kyper-matter': path.resolve(__dirname, '..', 'node_modules/kyper-matter/dist/matter.js')
     },
     extensions: ['', '.js']
   };

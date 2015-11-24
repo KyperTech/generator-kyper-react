@@ -1,4 +1,14 @@
 # generator-kyper-react
+<p align="center">
+  <!-- Npm Version -->
+  <a href="https://npmjs.org/package/generator-kyper-react">
+    <img src="https://img.shields.io/npm/v/generator-kyper-react.svg" alt="npm version">
+  </a>
+  <!-- License -->
+  <a href="https://github.com/KyperTech/generator-kyper-react/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/npm/l/generator-kyper-react.svg" alt="license">
+  </a>
+</p>
 
 Generator for a React projects that use Redux and are bundled with Webpack. There are also sub-generators for Components, Containers(Redux linked component), as well as Redux Actions and Reducers.
 

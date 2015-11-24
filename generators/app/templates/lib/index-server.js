@@ -16,9 +16,9 @@ export default (cb) => {
 
   // Grab the initial state from our Redux store
   const finalState = store.getState();
-
+  let markup = React.renderToString(<Root store={ store } />);
   return cb({
     appData: finalState,
-    appMarkup: React.renderToString(<Root store={ store } />)
+    appMarkup: markup
   });
 }
