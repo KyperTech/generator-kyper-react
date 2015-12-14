@@ -4,7 +4,7 @@ import Root from './root';
 import configureStore from './store/configureStore';
 
 import { reduxReactRouter } from 'redux-router';
-import createHistory from 'history/lib/createBrowserHistory';
+import { createHistory } from 'history';
 
 const initialState = window.__INITIAL_STATE__ || {
 };
