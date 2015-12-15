@@ -1,6 +1,6 @@
 {
   "name": "generator-kyper-react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Generator for React/Redux projects that includes sub generators for Actions, Reducers, Components, and Containers.",
   "license": "MIT",
   "main": "generators/app/index.js",
@@ -8,11 +8,13 @@
     "generators"
   ],
   "repository": "https://github.com/kypertech/generator-kyper-react",
-  "author": {
-    "name": "Scott",
-    "email": "",
-    "url": "https://github.com/prescottprue"
-  },
+  "author": "Kyper LLC <kyper.dev@gmail.com>",
+  "contributors":[
+    {
+    "name": "Prescott Prue",
+    "email": "sprue.dev@gmail.com"
+  }
+],
   "scripts": {
     "test": "mocha"
   },

@@ -46,8 +46,8 @@ import './LoginForm.scss';
             <input className="LoginForm-Input" onChange={this.handlePasswordChange} type='password' />
           </div>
           <div className="LoginForm-Buttons">
-            <button className="LoginForm-Login" type="submit">Login</button>
-            <button className="LoginForm-Cancel" type="reset">Cancel</button>
+            <button className="Button LoginForm-Login" type="submit">Login</button>
+            <button className="Button LoginForm-Cancel" type="reset">Cancel</button>
           </div>
        </form>
     )
