@@ -7,10 +7,9 @@ import {
   LOGOUT_RESPONSE,
   AUTH_ERR
 } from '../actions/profile';
-
+import { merge } from 'lodash';
 export default function profile(state = {
-  isFetching: false,
-  account: null
+  isFetching: false
 }, action) {
   switch (action.type) {
   case LOGIN_ATTEMPT:

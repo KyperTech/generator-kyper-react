@@ -1,21 +1,44 @@
+@import '../../variables';
+a {
+  text-decoration: none;
+  &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+}
 .App {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-.inputs {
-  text-align:center;
-  margin-top:40px;
+
+.Button {
+  font-size:1.5rem;
+  font-weight:300;
+  margin-bottom:10px;
+  border:1px;
+  border-color: $primary;
+  cursor: pointer;
+  height: 2rem;
+  width: 100%;
+  &:hover {
+    background-color:$primary;
+    color: white;
+  }
 }
-.input-group {
-  margin-bottom: 1em;
+.Input {
+  font-size: 1.2rem;
+  flex-grow: 1;
+  border: 0px;
+  border-bottom: 4px solid $mediumGray;
+  background: none;
+  width: 100%;
+  &-Label {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    display:block;
+    background-color: none;
+  }
+  &:focus {
+    outline: 0;
+    border-color: $primary;
+  }
 }
-.input {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-// .brand {
-//   $size: 40px;
-//   width: $size;
-//   height: $size;
-//   border-radius: $size / 2;
-// }

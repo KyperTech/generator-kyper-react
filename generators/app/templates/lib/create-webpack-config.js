@@ -124,7 +124,7 @@ function createWebpackConfig(options) {
     output: output,
     plugins: plugins,
     resolve: resolve,
-    module: {loaders: loaders, noParse:[/kyper-matter/]},
+    module: {loaders: loaders},
     target: options.target,
 
     port: port,

@@ -9,16 +9,6 @@ export const AUTH_ERR = 'AUTH_ERR';
 import Matter from 'kyper-matter';
 let matter = new Matter('<%= appName %>');
 
-// Fetches a single user from Github API unless it is cached.
-// Relies on Redux Thunk middleware.
-export function loadAccount(login, requiredFields = []) {
-  return (dispatch, getState) => {
-    const user = getState().account;
-    if (user) {
-      return null;
-    }
-  };
-}
 export function attemptLogin(loginData) {
  return {
    type: LOGIN_ATTEMPT,

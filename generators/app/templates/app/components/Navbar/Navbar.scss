@@ -12,10 +12,14 @@
   display: flex;
   flex-direction: row;
   vertical-align: middle;
+  box-sizing: border-box;
   &-Brand {
     font-size:1em;
-    & :hover {
-      color: $secondary;
+    a {
+      color: $primary;
+      &:hover {
+        color: $secondary;
+      }
     }
   }
   &-Spacer {

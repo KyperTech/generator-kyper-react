@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as Actions from '../../actions/auth';
+import * as Actions from '../../actions/profile';
 import { Link } from 'react-router';
+import './Profile.scss';
 
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.logout = this.props.logout.bind(this);
   }
   render() {
+    let emailTo = `mailto:${this.props.profile.email || ''}`;
     return (
-      <div className="homepage">
-        <h2>Profile Page</h2>
-        <button onClick={this.logout}>Logout</button>
+      <div className="Profile">
+        <div className="Profile-Data">
+          <span className="Profile-Datapoint Profile-Username">{ this.props.profile.username }</span>
+          <span className="Profile-Datapoint Profile-Name">{ this.props.profile.name || 'No Name' }</span>
+          <span className="Profile-Datapoint Profile-Role">{ this.props.profile.role }</span>
+          <a className="Profile-Datapoint Profile-Email" href={ emailTo }>
+            { this.props.profile.email }
+          </a>
+          <button className="Button" onClick={ this.props.logout }>Logout</button>
+        </div>
       </div>
     )
   }
@@ -21,7 +29,7 @@ class Profile extends Component {
 //Place state of redux store into props of component
 function mapStateToProps(state) {
   return {
-    account: state.account,
+    profile: state.profile,
     router: state.router
   };
 }

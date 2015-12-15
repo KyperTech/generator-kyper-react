@@ -8,13 +8,15 @@ class ProfileManager extends Component {
     super(props);
   }
   static propTypes = {
-    profile: PropTypes.object
+    profile: PropTypes.object,
+    onLogoutClick: PropTypes.func
   };
   render() {
     if(this.props.profile && this.props.profile.username){
       return (
         <ProfileDropdown
           profile={ this.props.profile }
+          onLogoutClick={ this.props.onLogoutClick }
         />
       )
     } else {

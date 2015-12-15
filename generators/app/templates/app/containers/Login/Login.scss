@@ -1,14 +1,7 @@
 .Login {
   width: 100%;
-  text-align:center;
-  &-Group {
-    padding:10px;
-
-  }
-  &-Label {
-
-  }
-  &-Input {
-
-  }
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
 }

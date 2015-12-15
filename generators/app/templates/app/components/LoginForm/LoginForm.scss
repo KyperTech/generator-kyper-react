@@ -1,13 +1,48 @@
+@import '../../variables';
+
 .LoginForm {
-  width: 100%;
-  text-align:center;
+  flex-grow:1;
+  flex-basis: 35%;
+  min-width: 250px;
+  font-size: 1.4rem;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
   &-Group {
+    width:100%;
     padding:10px;
   }
   &-Label {
-
+    display:block;
+    margin-bottom: 5px;
   }
   &-Input {
-
+    font-size: 1.3rem;
+    width:100%;
+    border: 0px;
+    background-color:inherit;
+    border-bottom: solid 3px;
+    border-color: black;
+    &:focus {
+      border-color: $secondary;
+      outline: 0;
+    }
+  }
+  &-Buttons {
+    margin-top: 1.5rem;
+    width: 80%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+  }
+  &-Login {
+    background-color:$secondary;
+  }
+  &-Signup {
+    font-size: 1rem;
+    margin-top:1rem;
+    text-align: center;
   }
 }

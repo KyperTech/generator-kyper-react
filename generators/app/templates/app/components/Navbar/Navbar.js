@@ -9,16 +9,22 @@ class Navbar extends Component {
     super(props);
   }
   static propTypes = {
-    profile: PropTypes.object
+    profile: PropTypes.object,
+    onLogoutClick: PropTypes.func
   };
   render() {
+    let brandLinkLoc = (this.props.profile && this.props.profile.username) ? '/cars' : '/';
+    let brandLink = <Link to={ brandLinkLoc }><%= appName %></Link>
     return (
       <div className="Navbar">
         <div className="Navbar-Brand">
-          <Link to="/">Starter</Link>
+          { brandLink }
         </div>
         <div className="Navbar-Spacer"></div>
-        <ProfileManager profile={ this.props.profile } />
+        <ProfileManager
+          profile={ this.props.profile }
+          onLogoutClick={ this.props.onLogoutClick }
+        />
       </div>
     )
   }
