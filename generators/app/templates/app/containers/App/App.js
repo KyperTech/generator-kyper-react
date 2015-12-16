@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as Actions from '../../actions/profile';
+import { Actions } from 'redux-matter';
 import './App.scss';
 
 import Navbar from '../../components/Navbar/Navbar';
@@ -13,8 +13,11 @@ class Main extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar profile={ this.props.profile } onLogoutClick={ this.props.logout }/>
-        {this.props.children}
+        <Navbar
+          account={ this.props.account }
+          onLogoutClick={ this.props.logout }
+        />
+        { this.props.children }
       </div>
     )
   }
@@ -22,7 +25,7 @@ class Main extends Component {
 //Place state of redux store into props of component
 function mapStateToProps(state) {
   return {
-    profile: state.profile,
+    account: state.account ? state.entities.accounts[state.account.id] : null,
     router: state.router
   };
 }

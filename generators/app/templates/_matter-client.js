@@ -6,9 +6,11 @@ import configureStore from './store/configureStore';
 import { reduxReactRouter } from 'redux-router';
 import { createHistory } from 'history';
 import matter from './helpers/matter';
-
+import Matter from 'kyper-matter';
+let matter = new Matter('<%= appName %>');
 const initialState = window.__INITIAL_STATE__ || {
-  profile: matter.currentUser
+  account: {id: matter.currentUser ? matter.currentUser.id : null},
+  accounts: [matter.currentUser]
 };
 
 const store = configureStore(initialState, reduxReactRouter, createHistory);

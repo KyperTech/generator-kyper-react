@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import { routerStateReducer } from 'redux-router';
 import cars from './cars';
-import profile from './profile';
-
+import { Reducers } from 'redux-matter';
 const rootReducer = combineReducers({
   cars,
-  profile,
+  account: Reducers.account,
+  entities: Reducers.entities,
   router: routerStateReducer
 });
 

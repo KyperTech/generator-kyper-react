@@ -5,14 +5,15 @@ import { devTools } from 'redux-devtools';
 import thunkMiddleware from 'redux-thunk';
 import createHistory from 'history/lib/createBrowserHistory';
 import routes from '../routes';
-
+import { createMiddleware } from 'redux-matter';
+let matterMiddleware = createMiddleware('<%= appName %>', {logLevel: 'error'});
 const createStoreWithMiddleware = compose(
   // Save for redux middleware
-  applyMiddleware(thunkMiddleware),
+  applyMiddleware(thunkMiddleware, matterMiddleware),
   reduxReactRouter({
     createHistory
   }),
-  devTools()
+  typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
 )(createStore);
 
 export default function configureStore(initialState) {

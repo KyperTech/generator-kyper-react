@@ -19,7 +19,10 @@ import './LoginForm.scss';
    */
   handleLogin(event) {
     event.preventDefault();
-    this.props.onLoginClick({username:this.state.username, password: this.password});
+    this.props.onLoginClick({
+      username:this.state.username,
+      password: this.password
+    });
   }
   /**
    * @function handleUsernameChange
@@ -38,16 +41,24 @@ import './LoginForm.scss';
     return (
         <form className="LoginForm" onSubmit={this.handleLogin}>
           <div className="LoginForm-Group">
-            <span className="LoginForm-Label">Username/Email</span>
+            <span className="LoginForm-Label">
+              Username/Email
+            </span>
             <input className="LoginForm-Input" onChange={this.handleUsernameChange}/>
           </div>
           <div className="LoginForm-Group">
-            <span className="LoginForm-Label">Password</span>
+            <span className="LoginForm-Label">
+              Password
+            </span>
             <input className="LoginForm-Input" onChange={this.handlePasswordChange} type='password' />
           </div>
           <div className="LoginForm-Buttons">
-            <button className="Button LoginForm-Login" type="submit">Login</button>
-            <button className="Button LoginForm-Cancel" type="reset">Cancel</button>
+            <button className="Button LoginForm-Login" type="submit">
+              Login
+            </button>
+            <button className="Button LoginForm-Cancel" type="reset">
+              Cancel
+            </button>
           </div>
        </form>
     )

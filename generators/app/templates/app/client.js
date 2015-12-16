@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { reduxReactRouter } from 'redux-router';
+import { createHistory } from 'history';
+import { getMatter } from 'redux-matter';
 import Root from './root';
 import configureStore from './store/configureStore';
 
-import { reduxReactRouter } from 'redux-router';
-import { createHistory } from 'history';
+let matter = getMatter();
+let entitiesObj = {accounts:{}};
+let accountObj = {};
 
-const initialState = window.__INITIAL_STATE__ || {
-};
+if(matter.currentUser){
+  accountObj.id = matter.currentUser.id
+  entitiesObj.accounts[matter.currentUser.id] = matter.currentUser
+}
 
 const store = configureStore(initialState, reduxReactRouter, createHistory);
 

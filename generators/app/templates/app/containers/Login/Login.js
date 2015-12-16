@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import * as Actions from '../../actions/profile';
+import { Actions } from 'redux-matter';
 import './Login.scss';
 
  class Login extends Component {
@@ -26,7 +26,7 @@ import './Login.scss';
 //Place state of redux store into props of component
 function mapStateToProps(state) {
   return {
-    profile: state.profile,
+    account: state.account ? state.entities.accounts[state.account.id] : null,
     router: state.router
   };
 }

@@ -4,7 +4,7 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 
-describe('WebpackReduxReact:generators/component', function () {
+describe.skip('WebpackReduxReact:generators/component', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/component'))
       .withArguments('name')

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as Actions from '../../actions/profile';
+import { Actions } from 'redux-matter';
 import { Link } from 'react-router';
 import './Profile.scss';
 
@@ -10,17 +10,25 @@ class Profile extends Component {
     super(props);
   }
   render() {
-    let emailTo = `mailto:${this.props.profile.email || ''}`;
+    let emailTo = `mailto:${this.props.account.email || ''}`;
     return (
       <div className="Profile">
         <div className="Profile-Data">
-          <span className="Profile-Datapoint Profile-Username">{ this.props.profile.username }</span>
-          <span className="Profile-Datapoint Profile-Name">{ this.props.profile.name || 'No Name' }</span>
-          <span className="Profile-Datapoint Profile-Role">{ this.props.profile.role }</span>
+          <span className="Profile-Datapoint Profile-Username">
+            { this.props.account.username }
+          </span>
+          <span className="Profile-Datapoint Profile-Name">
+            { this.props.account.name || 'No Name' }
+          </span>
+          <span className="Profile-Datapoint Profile-Role">
+            { this.props.account.role }
+          </span>
           <a className="Profile-Datapoint Profile-Email" href={ emailTo }>
-            { this.props.profile.email }
+            { this.props.account.email }
           </a>
-          <button className="Button" onClick={ this.props.logout }>Logout</button>
+          <button className="Button" onClick={ this.props.logout }>
+            Logout
+          </button>
         </div>
       </div>
     )
@@ -29,7 +37,7 @@ class Profile extends Component {
 //Place state of redux store into props of component
 function mapStateToProps(state) {
   return {
-    profile: state.profile,
+    account: state.account ? state.entities.accounts[state.account.id] : null,
     router: state.router
   };
 }

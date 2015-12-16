@@ -4,8 +4,16 @@
   <a href="https://npmjs.org/package/generator-kyper-react">
     <img src="https://img.shields.io/npm/v/generator-kyper-react.svg" alt="npm version">
   </a>
+  <!-- Build Status -->
+  <a href="https://travis-ci.org/KyperTech/generator-kyper-react">
+    <img title="Build Status" src="https://travis-ci.org/KyperTech/generator-kyper-react.svg">
+  </a>
+  <!-- Dependency Status -->
+  <a href="https://david-dm.org/KyperTech/generator-kyper-react">
+    <img src="https://david-dm.org/KyperTech/generator-kyper-react.svg" alt="dependency status">
+  </a>
   <!-- License -->
-  <a href="https://github.com/KyperTech/generator-kyper-react/blob/master/LICENSE.md">
+  <a href="https://github.com/KyperTech/generator-kyper-react/blob/master/LICENSE">
     <img src="https://img.shields.io/npm/l/generator-kyper-react.svg" alt="license">
   </a>
 </p>

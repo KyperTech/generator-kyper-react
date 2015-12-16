@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import ProfileManager from '../ProfileManager/ProfileManager';
+import AccountManager from '../AccountManager/AccountManager';
 import './Navbar.scss';
 
 class Navbar extends Component {
@@ -9,11 +9,11 @@ class Navbar extends Component {
     super(props);
   }
   static propTypes = {
-    profile: PropTypes.object,
+    account: PropTypes.object,
     onLogoutClick: PropTypes.func
   };
   render() {
-    let brandLinkLoc = (this.props.profile && this.props.profile.username) ? '/cars' : '/';
+    let brandLinkLoc = (this.props.account && this.props.account.username) ? '/cars' : '/';
     let brandLink = <Link to={ brandLinkLoc }><%= appName %></Link>
     return (
       <div className="Navbar">
@@ -21,8 +21,8 @@ class Navbar extends Component {
           { brandLink }
         </div>
         <div className="Navbar-Spacer"></div>
-        <ProfileManager
-          profile={ this.props.profile }
+        <AccountManager
+          account={ this.props.account }
           onLogoutClick={ this.props.onLogoutClick }
         />
       </div>
