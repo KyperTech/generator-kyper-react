@@ -7,15 +7,8 @@ import Root from './root';
 import configureStore from './store/configureStore';
 
 let matter = getMatter();
-let entitiesObj = {accounts:{}};
-let accountObj = {};
 
-if(matter.currentUser){
-  accountObj.id = matter.currentUser.id
-  entitiesObj.accounts[matter.currentUser.id] = matter.currentUser
-}
-
-const store = configureStore(initialState, reduxReactRouter, createHistory);
+const store = configureStore({account: matter.currentUser}, reduxReactRouter, createHistory);
 
 let rootElement = document.getElementById('root');
 

@@ -2,11 +2,11 @@
 <p align="center">
   <!-- Npm Version -->
   <a href="https://npmjs.org/package/generator-kyper-react">
-    <img src="https://img.shields.io/npm/v/generator-kyper-react.svg" alt="npm version">
+    <img src="https://img.shields.io/npm/v/generator-kyper-react.svg?style=flat-square" alt="npm version">
   </a>
   <!-- Build Status -->
   <a href="https://travis-ci.org/KyperTech/generator-kyper-react">
-    <img title="Build Status" src="https://travis-ci.org/KyperTech/generator-kyper-react.svg">
+    <img title="Build Status" src="https://img.shields.io/travis/KyperTech/generator-kyper-react.svg?style=flat-square">
   </a>
   <!-- Dependency Status -->
   <a href="https://david-dm.org/KyperTech/generator-kyper-react">
