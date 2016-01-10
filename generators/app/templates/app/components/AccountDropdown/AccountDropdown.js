@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import './AccountDropdown.scss';
 
-class AccountDropdown extends Component {
+export default class AccountDropdown extends Component {
   constructor() {
     super();
     this.state = {isOpen: false};
@@ -34,7 +34,7 @@ class AccountDropdown extends Component {
           <button onClick={ this.toggleDropdown }>
             {this.props.account.username}
           </button>
-          <Link className="AccountDropdown-Link" to="/profile">
+          <Link className="AccountDropdown-Link" to="/account">
             Profile
           </Link>
           <button onClick={ this.props.onLogoutClick }>
@@ -45,5 +45,3 @@ class AccountDropdown extends Component {
     }
   }
 }
-
-export default AccountDropdown;

@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import * as Actions from '../../actions/<%= name.toLowerCase() %>';
+import { Actions } from '../../actions/<%= name.toLowerCase() %>';
 import './<%= name %>.scss';
 
 class <%= name %> extends Component {

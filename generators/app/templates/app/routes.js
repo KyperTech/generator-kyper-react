@@ -4,7 +4,7 @@ import {
     App,
     Home,
     About,
-    Profile,
+    Account,
     Login,
     Signup,
     NotFound,
@@ -16,7 +16,7 @@ export default (
     <Route path="login" component={ Login }/>
     <Route path="signup" component={ Signup }/>
     <Route path="about" component={ About } />
-    <Route path="profile" component={ Profile } />
+    <Route path="account" component={ Account } />
     <Route path="cars" component={ Cars } />
     <Route path="*" component={ NotFound } />
   </Route>

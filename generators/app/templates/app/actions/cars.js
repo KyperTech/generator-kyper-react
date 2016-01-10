@@ -8,15 +8,16 @@ export function addCar(cars) {
     payload: cars
   };
 }
-export function removeCar(cars) {
+export function removeCar(index) {
   return {
     type: 'REMOVE_CAR',
-    payload: cars
+    payload: index
   };
 }
-export function updateCar(cars) {
+export function updateCar(index, carData) {
   return {
     type: 'UPDATE_CAR',
-    payload: cars
+    index: carData,
+    payload: carData
   };
 }

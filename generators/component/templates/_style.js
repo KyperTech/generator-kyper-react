@@ -1,10 +1,13 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 import './<%= name %>.scss';
 
-class <%= name %> extends Component {
+export default class <%= name %> extends Component {
   constructor(props){
     super(props);
   }
+  static propTypes = {
+
+  };
   render(){
     return (
       <div className="<%= name %>">
@@ -13,5 +16,3 @@ class <%= name %> extends Component {
     );
   }
 }
-
-export default <%= name %>

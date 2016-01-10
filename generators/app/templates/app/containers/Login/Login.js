@@ -26,7 +26,7 @@ import './Login.scss';
 //Place state of redux store into props of component
 function mapStateToProps(state) {
   return {
-    account: state.account ? state.entities.accounts[state.account.id] : null,
+    account: state.account,
     router: state.router
   };
 }

@@ -3,27 +3,27 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Actions } from 'redux-matter';
 import { Link } from 'react-router';
-import './Profile.scss';
+import './Account.scss';
 
-class Profile extends Component {
+class Acccount extends Component {
   constructor(props) {
     super(props);
   }
   render() {
     let emailTo = `mailto:${this.props.account.email || ''}`;
     return (
-      <div className="Profile">
-        <div className="Profile-Data">
-          <span className="Profile-Datapoint Profile-Username">
+      <div className="Acccount">
+        <div className="Acccount-Data">
+          <span className="Acccount-Datapoint Acccount-Username">
             { this.props.account.username }
           </span>
-          <span className="Profile-Datapoint Profile-Name">
+          <span className="Acccount-Datapoint Acccount-Name">
             { this.props.account.name || 'No Name' }
           </span>
-          <span className="Profile-Datapoint Profile-Role">
+          <span className="Acccount-Datapoint Acccount-Role">
             { this.props.account.role }
           </span>
-          <a className="Profile-Datapoint Profile-Email" href={ emailTo }>
+          <a className="Acccount-Datapoint Acccount-Email" href={ emailTo }>
             { this.props.account.email }
           </a>
           <button className="Button" onClick={ this.props.logout }>
@@ -45,4 +45,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Acccount);

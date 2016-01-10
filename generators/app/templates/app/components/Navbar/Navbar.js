@@ -14,11 +14,10 @@ class Navbar extends Component {
   };
   render() {
     let brandLinkLoc = (this.props.account && this.props.account.username) ? '/cars' : '/';
-    let brandLink = <Link to={ brandLinkLoc }><%= appName %></Link>
     return (
       <div className="Navbar">
         <div className="Navbar-Brand">
-          { brandLink }
+          <Link to={ brandLinkLoc }><%= appName %></Link>
         </div>
         <div className="Navbar-Spacer"></div>
         <AccountManager

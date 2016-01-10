@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import AccountDropdown from '../AccountDropdown/AccountDropdown';
 import './AccountManager.scss';
 
-class AccountManager extends Component {
+export default class AccountManager extends Component {
   constructor(props) {
     super(props);
   }
@@ -33,5 +33,3 @@ class AccountManager extends Component {
     }
   }
 }
-
-export default AccountManager;

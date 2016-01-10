@@ -1,4 +1,4 @@
-import { ADD_CAR } from '../actions';
+import { ADD_CAR } from '../actions/cars';
 
 export default function cars(state = [], action) {
   switch (action.type) {
