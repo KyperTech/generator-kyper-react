@@ -58,7 +58,6 @@ module.exports = yeoman.generators.Base.extend({
         {src:'webpack-dev.config.js'},
         {src:'webpack-production.config.js'},
         {src:'webpack-server-production.config.js'},
-        {src:'webpack.config.js'},
         {src:'gitignore', dest: '.gitignore'},
         {src:'eslintrc', dest: '.eslintrc'},
         {src:'babelrc', dest: '.babelrc'}
