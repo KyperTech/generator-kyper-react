@@ -2,16 +2,10 @@
 
 .Navbar {
   background-color: $navbar;
-  width:100%;
   padding:10px;
   font-size:1.5em;
   line-height: 1.3em;
-  /* Flexbox */
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  vertical-align: middle;
   box-sizing: border-box;
   &-Brand {
     font-size:1em;

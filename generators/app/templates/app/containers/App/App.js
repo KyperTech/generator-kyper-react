@@ -1,18 +1,19 @@
-import React, { Component, PropTypes } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Actions } from 'redux-matter';
-import './App.scss';
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { Actions } from 'redux-matter'
+import './App.scss'
 
-import Navbar from '../../components/Navbar/Navbar';
+import Navbar from '../../components/Navbar/Navbar'
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
   }
-  render() {
+
+  render () {
     return (
-      <div className="App">
+      <div className='App'>
         <Navbar
           account={ this.props.account }
           onLogoutClick={ this.props.logout }
@@ -22,16 +23,16 @@ class Main extends Component {
     )
   }
 }
-//Place state of redux store into props of component
-function mapStateToProps(state) {
+// Place state of redux store into props of component
+function mapStateToProps (state) {
   return {
     account: state.account,
     router: state.router
-  };
+  }
 }
-//Place action methods into props
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch);
+// Place action methods into props
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators(Actions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main)

@@ -5,32 +5,32 @@
   flex-basis: 35%;
   min-width: 250px;
   font-size: 1.4rem;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   &-Group {
-    width:100%;
-    padding:10px;
+    display: flex;
+    padding: 10px;
   }
   &-Label {
-    display:block;
+    display: block;
     margin-bottom: 5px;
   }
   &-Buttons {
     margin-top: 1.5rem;
     width: 80%;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   &-Login {
-    background-color:$secondary;
+    background-color: $secondary;
   }
   &-Signup {
     font-size: 1rem;
-    margin-top:1rem;
+    margin-top: 1rem;
     text-align: center;
   }
 }

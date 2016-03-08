@@ -1,4 +1,7 @@
 @import '../../variables';
+.App {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 a {
   text-decoration: none;
   &:visited {
@@ -6,21 +9,17 @@ a {
     color: inherit;
   }
 }
-.App {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 .Button {
-  font-size:1.5rem;
-  font-weight:300;
-  margin-bottom:10px;
-  border:1px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 10px;
+  border: 1px;
   border-color: $primary;
   cursor: pointer;
   height: 2rem;
   width: 100%;
   &:hover {
-    background-color:$primary;
+    background-color: $primary;
     color: white;
   }
 }
@@ -34,7 +33,7 @@ a {
   &-Label {
     font-size: 1.5rem;
     margin-top: 1rem;
-    display:block;
+    display: block;
     background-color: none;
   }
   &:focus {

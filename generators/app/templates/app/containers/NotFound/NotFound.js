@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
 export default class NotFound extends Component {
-  render() {
+  render () {
     return (
-      <div className="container">
-        <h1>Doh! 404!</h1>
-        <p>These are <em>not</em> the droids you are looking for!</p>
+      <div className='container'>
+        <h1>Whoops! 404!</h1>
+        <p>This page was not found.</p>
       </div>
-    );
+    )
   }
 }

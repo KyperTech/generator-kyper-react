@@ -25,7 +25,7 @@ class CarsList extends Component {
       return <li key={ i }>{ car.name } - { car.hp }</li>
     })
     return (
-      <div>
+      <div class='ClassList'>
         { cars }
         <button onClick={ this.handleClick.bind(this) }>Add tesla</button>
       </div>

@@ -5,23 +5,24 @@
   flex-basis: 35%;
   min-width: 250px;
   font-size: 1.4rem;
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   &-Group {
-    width:100%;
-    padding:10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
   }
   &-Label {
-    display:block;
-    margin-bottom: 5px;
+    display: block;
+    margin-bottom: 10px;
   }
   &-Input {
     font-size: 1.3rem;
-    width:100%;
+    display: flex;
     border: 0px;
-    background-color:inherit;
+    background-color: inherit;
     border-bottom: solid 3px;
     border-color: black;
     &:focus {
@@ -31,18 +32,18 @@
   }
   &-Buttons {
     margin-top: 1.5rem;
-    width: 80%;
-    display:flex;
-    flex-direction:column;
+    flex-basis: 80%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   &-Login {
-    background-color:$secondary;
+    background-color: $secondary;
   }
   &-Signup {
     font-size: 1rem;
-    margin-top:1rem;
+    margin-top: 1rem;
     text-align: center;
   }
 }

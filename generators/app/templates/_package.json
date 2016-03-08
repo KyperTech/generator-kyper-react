@@ -4,8 +4,8 @@
   "main": "bin/server.js",
   "scripts": {
     "build": "npm run clean && npm run build-bundle && npm run build-server && npm run build-copy",
-    "build-bundle": "webpack --stats --progress --config webpack-production.config",
-    "build-server": "webpack --stats --progress --config webpack-server-production.config",
+    "build-bundle": "webpack -p --stats --progress --config webpack-production.config",
+    "build-server": "webpack -p --stats --progress --config webpack-server-production.config",
     "build-copy": "cp -a assets build",
     "clean": "rimraf build",
     "start": "node bin/dev-server",

@@ -1,16 +1,16 @@
-import React, { Component, PropTypes } from 'react';
-import './<%= name %>.scss';
+import React, { Component, PropTypes } from 'react'
+import './<%= name %>.scss'
 
 export default class <%= name %> extends Component {
-  constructor(props){
+  constructor (props){
     super(props);
   }
   static propTypes = {
 
   };
-  render(){
+  render (){
     return (
-      <div className="<%= name %>">
+      <div className='<%= name %>'>
 
       </div>
     );

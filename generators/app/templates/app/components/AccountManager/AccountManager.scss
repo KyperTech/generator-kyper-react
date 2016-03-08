@@ -1,18 +1,15 @@
 @import '../../variables';
 .AccountManager {
   display: flex;
-  //Button group
   &-Buttons {
-    display:inline;
-    padding-right:10px;
+    display: inline;
+    padding-right: 10px;
   }
-  //Button
   &-Button {
-    margin-right:10px;
-    margin-left:10px;
-    text-decoration:none;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
     & :hover {
-      // background-color:white;
       color: $secondary;
       text-decoration: underline;
     }

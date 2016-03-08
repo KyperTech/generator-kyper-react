@@ -1,23 +1,23 @@
-'use strict';
+'use strict'
 
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var fs = require('fs');
-var path = require('path');
-var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var fs = require('fs')
+var path = require('path')
+var webpack = require('webpack')
 
-var buildPath = 'build';
-var publicPath = 'assets';
-var port = process.env.PORT || 3000;
-var webpackPort = process.env.WEBPACK_PORT || 3001;
+var buildPath = 'build'
+var publicPath = 'assets'
+var port = process.env.PORT || 3000
+var webpackPort = process.env.WEBPACK_PORT || 3001
 
-function createWebpackConfig(options) {
-  if (!options) { options = {}; }
+function createWebpackConfig (options) {
+  if (!options) { options = {} }
 
-  var devtool = options.dev ? 'eval-source-map' : 'sourcemap';
+  var devtool = options.dev ? 'eval-source-map' : 'sourcemap'
 
   var entry = options.entry || [
     './app/client.js'
-  ];
+  ]
 
   if (options.dev) {
     entry = entry.concat(
@@ -29,45 +29,45 @@ function createWebpackConfig(options) {
   var output = {
     path: path.resolve(__dirname, '..', buildPath),
     filename: options.outputFilename || (options.dev ? 'bundle.js' : 'bundle.[hash].js'),
-    publicPath: options.dev ?
-      'http://localhost:' + webpackPort + '/' + publicPath + '/' :
-      '/' + publicPath + '/',
+    publicPath: options.dev
+    ? 'http://localhost:' + webpackPort + '/' + publicPath + '/'
+    : '/' + publicPath + '/',
     libraryTarget: options.outputLibraryTarget
-  };
+  }
 
   var plugins = [
     new webpack.NoErrorsPlugin(),
     new webpack.IgnorePlugin(/vertx/),
     new ExtractTextPlugin('style.[hash].css', {allChunks: true})
-  ];
+  ]
 
   if (options.dev) {
-    plugins = plugins.concat(new webpack.HotModuleReplacementPlugin());
+    plugins = plugins.concat(new webpack.HotModuleReplacementPlugin())
   } else {
     plugins = plugins.concat(new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
-    }));
+    }))
   }
 
   if (options.target === 'node') {
     plugins = plugins.concat(
       new webpack.BannerPlugin('require("source-map-support").install();',
-        {raw: true, entryOnly: false}));
+        {raw: true, entryOnly: false}))
   } else {
     plugins = plugins.concat([
       new webpack.optimize.UglifyJsPlugin(),
       new webpack.optimize.DedupePlugin(),
-      function() {
-        this.plugin('done', function(stats) {
+      function () {
+        this.plugin('done', function (stats) {
           fs.writeFileSync(
             path.resolve(__dirname, '..', 'stats.json'),
             JSON.stringify(stats.toJson())
-          );
-        });
+          )
+        })
       }
-    ]);
+    ])
   }
 
   if (options.target) {
@@ -76,8 +76,8 @@ function createWebpackConfig(options) {
         'process.env': {
           WEBPACK_TARGET: JSON.stringify(options.target)
         }
-      }),
-    ]);
+      })
+    ])
   }
 
   var resolve = {
@@ -85,28 +85,27 @@ function createWebpackConfig(options) {
       assets: path.resolve(__dirname, '..', 'assets')
     },
     extensions: ['', '.js']
-  };
+  }
 
   var cssLoaders = [
     'css?root=..',
     'sass?outputStyle=expanded&' +
     'includePaths[]=' + path.resolve(__dirname, 'bower_components')
-  ].join('!');
+  ].join('!')
 
   var loaders = [
     {
       exclude: /node_modules/,
       test: /\.js$/,
-      loaders: options.dev ?
-        ['react-hot', 'babel'] :
-        ['babel']
+      loaders: options.dev
+      ? ['react-hot', 'babel']
+      : ['babel']
     },
     {
       test: /\.(scss|css)$/,
-      loader: options.dev ?
-        'style!' + cssLoaders
-        :
-        ExtractTextPlugin.extract(cssLoaders)
+      loader: options.dev
+      ? 'style!' + cssLoaders
+      : ExtractTextPlugin.extract(cssLoaders)
     },
     {
       test: /\.(jpg|png|svg)$/,
@@ -116,7 +115,7 @@ function createWebpackConfig(options) {
       test: /\.json$/,
       loader: 'json'
     }
-  ];
+  ]
   return {
     bail: !options.dev,
     devtool: devtool,
@@ -131,6 +130,6 @@ function createWebpackConfig(options) {
     webpackPort: webpackPort,
     buildPath: buildPath,
     publicPath: publicPath
-  };
+  }
 }
-module.exports = createWebpackConfig;
+module.exports = createWebpackConfig

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { ReduxRouter } from 'redux-router';
-import routes from './routes';
+import React, { Component } from 'react'
+import { ReduxRouter } from 'redux-router'
+import routes from './routes'
 
 class AppRouter extends Component {
-  render() {
+  render () {
     return (
       <ReduxRouter>
         { routes }
@@ -12,4 +12,4 @@ class AppRouter extends Component {
   }
 }
 
-export default AppRouter;
+export default AppRouter
