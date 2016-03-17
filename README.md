@@ -1,22 +1,11 @@
 # generator-kyper-react
-<p align="center">
-  <!-- Npm Version -->
-  <a href="https://npmjs.org/package/generator-kyper-react">
-    <img src="https://img.shields.io/npm/v/generator-kyper-react.svg?style=flat-square" alt="npm version">
-  </a>
-  <!-- Build Status -->
-  <a href="https://travis-ci.org/KyperTech/generator-kyper-react">
-    <img title="Build Status" src="https://img.shields.io/travis/KyperTech/generator-kyper-react.svg?style=flat-square">
-  </a>
-  <!-- Dependency Status -->
-  <a href="https://david-dm.org/KyperTech/generator-kyper-react">
-    <img src="https://david-dm.org/KyperTech/generator-kyper-react.svg" alt="dependency status">
-  </a>
-  <!-- License -->
-  <a href="https://github.com/KyperTech/generator-kyper-react/blob/master/LICENSE">
-    <img src="https://img.shields.io/npm/l/generator-kyper-react.svg" alt="license">
-  </a>
-</p>
+
+[![NPM version][npm-image]][npm-url]
+[![npm downloads][npm-downloads-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
+[![license][license-image]][license-url]
+[![code-style][code-style-image]][code-style-url]
 
 Generator for a React projects that use Redux and are bundled with Webpack. There are also sub-generators for Components, Containers(Redux linked component), as well as Redux Actions and Reducers.
 
@@ -230,3 +219,19 @@ export default function cars(state = [], action) {
 * ### [Redux Examples](https://github.com/rackt/redux/tree/master/examples)
 
 ### Special thanks to [gaearon](https://github.com/gaearon) and [the rackt team](https://github.com/rackt) for building [redux](https://github.com/rackt/redux), and [redux router](https://github.com/rackt/redux-router)
+
+[npm-image]: https://img.shields.io/npm/v/generator-kyper-react.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/generator-kyper-react
+[npm-downloads-image]: https://img.shields.io/npm/dm/generator-kyper-react.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/KyperTech/generator-kyper-react/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/KyperTech/generator-kyper-react
+[daviddm-image]: https://img.shields.io/david/KyperTech/generator-kyper-react.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/KyperTech/generator-kyper-react
+[climate-image]: https://img.shields.io/codeclimate/github/KyperTech/generator-kyper-react.svg?style=flat-square
+[climate-url]: https://codeclimate.com/github/KyperTech/generator-kyper-react
+[coverage-image]: https://img.shields.io/codeclimate/coverage/github/KyperTech/generator-kyper-react.svg?style=flat-square
+[coverage-url]: https://codeclimate.com/github/KyperTech/generator-kyper-react
+[license-image]: https://img.shields.io/npm/l/generator-kyper-react.svg?style=flat-square
+[license-url]: https://github.com/KyperTech/generator-kyper-react/blob/master/LICENSE
+[code-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
+[code-style-url]: http://standardjs.com/
