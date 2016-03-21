@@ -4,17 +4,16 @@ import React from 'react';
 import Root from '../app/root';
 import createHistory from 'history/lib/createMemoryHistory';
 import { reduxReactRouter } from 'redux-router/server';
-import Matter from 'kyper-matter';
+import Fireuser from 'fireuser';
 
 import configureStore from '../app/store/configureStore';
 
-
 export default (cb) => {
   //Use matter to get current user
-  let matter = new Matter('<%= appName %>');
+  let fireuser = new Fireuser('https://<%= firebaseName %>.firebaseio.com');
   // Compile an initial state
   const initialState = {
-    profile: matter.currentUser,
+    account: fireuser.currentUser,
   }
 
   // Create a new Redux store instance

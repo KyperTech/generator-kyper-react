@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Actions } from 'redux-matter'
+import Actions from '../../actions'
 import { Link } from 'react-router'
 import './Account.scss'
 
@@ -9,8 +9,13 @@ class Acccount extends Component {
   constructor (props) {
     super(props)
   }
+
+  static propTypes = {
+    account: PropTypes.object,
+  };
+
   render () {
-    let emailTo = `mailto:${this.props.account.email || ''}`;
+    const emailTo = `mailto:${this.props.account.email || ''}`
     return (
       <div className='Acccount'>
         <div className='Acccount-Data'>
@@ -34,15 +39,18 @@ class Acccount extends Component {
     )
   }
 }
-//Place state of redux store into props of component
-function mapStateToProps(state) {
+
+// Place state of redux store into props of component
+function mapStateToProps (state) {
   return {
     account: state.account ? state.entities.accounts[state.account.id] : null,
     router: state.router
-  };
+  }
 }
-//Place action methods into props
+
+// Place action methods into props
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Actions, dispatch)
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Acccount);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Acccount)
