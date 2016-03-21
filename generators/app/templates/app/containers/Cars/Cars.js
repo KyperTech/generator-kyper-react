@@ -11,7 +11,8 @@ class Cars extends Component {
   }
 
   static propTypes = {
-
+    cars: PropTypes.array
+    addCar: PropTypes.func
   };
 
   render (){
@@ -23,15 +24,17 @@ class Cars extends Component {
     )
   }
 }
-//Place state of redux store into props of component
+// Place state of redux store into props of component
 function mapStateToProps (state) {
   return {
     cars: state.cars,
     router: state.router
   }
 }
-//Place action methods into props
+
+// Place action methods into props
 function mapDispatchToProps (dispatch) {
   return bindActionCreators(Actions, dispatch)
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Cars)

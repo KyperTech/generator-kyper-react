@@ -1,10 +1,11 @@
-import React, { Component, PropTypes } from 'react';
-import './CarsList.scss';
+import React, { Component, PropTypes } from 'react'
+import './CarsList.scss'
 
-class CarsList extends Component {
-  constructor() {
-    super();
+export default class CarsList extends Component {
+  constructor () {
+    super()
   }
+
   static propTypes = {
     cars: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -12,16 +13,18 @@ class CarsList extends Component {
     })).isRequired,
     onCarAddClick: PropTypes.func
   };
-  handleClick(e) {
+
+  handleClick = e => {
     if(this.props && this.props.onCarAddClick){
       this.props.onCarAddClick({
         name: 'tesla',
         hp: 400
       });
     }
-  }
-  render() {
-    let cars = this.props.cars.map((car, i) => {
+  };
+
+  render () {
+    const cars = this.props.cars.map((car, i) => {
       return <li key={ i }>{ car.name } - { car.hp }</li>
     })
     return (
@@ -32,5 +35,3 @@ class CarsList extends Component {
     )
   }
 }
-
-export default CarsList;

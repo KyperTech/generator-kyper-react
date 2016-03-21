@@ -1,19 +1,20 @@
-import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
+import AccountManager from '../AccountManager/AccountManager'
+import './Navbar.scss'
 
-import AccountManager from '../AccountManager/AccountManager';
-import './Navbar.scss';
-
-class Navbar extends Component {
-  constructor(props) {
-    super(props);
+export default class Navbar extends Component {
+  constructor (props) {
+    super(props)
   }
+
   static propTypes = {
     account: PropTypes.object,
     onLogoutClick: PropTypes.func
   };
-  render() {
-    let brandLinkLoc = (this.props.account && this.props.account.username) ? '/cars' : '/';
+
+  render () {
+    const brandLinkLoc = (this.props.account && this.props.account.username) ? '/cars' : '/'
     return (
       <div className="Navbar">
         <div className="Navbar-Brand">
@@ -28,4 +29,3 @@ class Navbar extends Component {
     )
   }
 }
-export default Navbar;

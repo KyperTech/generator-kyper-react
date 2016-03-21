@@ -2,13 +2,13 @@
 
 .Navbar {
   background-color: $navbar;
-  padding:10px;
-  font-size:1.5em;
+  padding: 10px;
+  font-size: 1.5em;
   line-height: 1.3em;
   display: flex;
   box-sizing: border-box;
   &-Brand {
-    font-size:1em;
+    font-size: 1em;
     a {
       color: $primary;
       &:hover {
@@ -17,6 +17,6 @@
     }
   }
   &-Spacer {
-    flex:1;
+    flex: 1;
   }
 }

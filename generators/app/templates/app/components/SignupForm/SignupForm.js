@@ -1,49 +1,50 @@
-import React, {Component, PropTypes} from 'react';
-import { Link } from 'react-router';
-import './SignupForm.scss';
+import React, {Component, PropTypes} from 'react'
+import { Link } from 'react-router'
+import './SignupForm.scss'
 
-class SignupForm extends Component {
+export default class SignupForm extends Component {
   constructor(props) {
-    super(props);
-    this.handleSignup = this.handleSignup.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handlePrivateChange = this.handlePrivateChange.bind(this);
-    this.state = {};
+    super(props)
   }
+
+  state = {};
+
   static propTypes = {
     onLoginClick: PropTypes.func.isRequired
   };
+
   /**
    * @function handleSignup
    * @description Fire onLoginClick function provided to component when login is clicked
    */
-  handleSignup(event) {
-    event.preventDefault();
-    let newAccountData = this.getState();
-    newAccountData.password = this.password ? this.password : '';
-    this.props.onLoginClick(newAccountData);
+  handleSignup = e => {
+    e.preventDefault()
+    let newAccountData = this.getState()
+    newAccountData.password = this.password ? this.password : ''
+    this.props.onLoginClick(newAccountData)
   }
   /**
    * @function handleInputChange
    * @description Update the state with the values from the form inputs.
    * @fires context#setState
    */
-  handleInputChange(name, e) {
-    e.preventDefault();
+  handleInputChange = (name, e) => {
+    e.preventDefault()
     this.setState({
       [name]: e.target.value
-    });
+    })
   }
+
   /**
    * @function handleUsernameChange
    * @description Store private values.
-   * @fires context#setState
    */
-  handlePrivateChange(name, e) {
-    e.preventDefault();
-    this[name] = e.target.value;
+  handlePrivateChange = (name, e) => {
+    e.preventDefault()
+    this[name] = e.target.value
   }
-  render() {
+
+  render () {
     return (
       <form className="SignupForm" onSubmit={this.handleSignup}>
         <div className="SignupForm-Input-Wrapper">
@@ -95,5 +96,3 @@ class SignupForm extends Component {
     )
   }
 }
-
-export default SignupForm;

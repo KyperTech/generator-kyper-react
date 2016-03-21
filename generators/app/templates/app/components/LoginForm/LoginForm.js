@@ -1,12 +1,13 @@
-import React, {Component, PropTypes} from 'react';
-import { Link } from 'react-router';
-import './LoginForm.scss';
+import React, {Component, PropTypes} from 'react'
+import { Link } from 'react-router'
+import './LoginForm.scss'
 
- class LoginForm extends Component {
+export default class LoginForm extends Component {
   constructor (props) {
     super(props)
-    this.state = { username: '', password: '' }
   }
+
+  state = { username: '', password: '' };
 
   static propType = {
     onLoginClick: PropTypes.func.isRequired
@@ -66,5 +67,3 @@ import './LoginForm.scss';
     )
   }
 }
-
-export default LoginForm;
