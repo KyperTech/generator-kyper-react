@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux'
 import { routerStateReducer } from 'redux-router'
 import cars from './cars'
+import { Reducers } from 'redux-fireuser'
+const { account, entities } = Reducers
 const rootReducer = combineReducers({
   cars,
+  account,
+  entities,
   router: routerStateReducer
 })
 

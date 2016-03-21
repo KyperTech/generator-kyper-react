@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import { Link } from 'react-router'
 import LoginForm from '../../components/LoginForm/LoginForm'
-import { Actions } from 'redux-matter'
+import Actions from '../../actions'
 import './Login.scss'
 
 class Login extends Component {

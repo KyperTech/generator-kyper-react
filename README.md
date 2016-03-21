@@ -21,7 +21,7 @@ Generator for a React projects that use Redux and are bundled with Webpack. Ther
 `mkdir myProject && cd myProject`
 
 2. Initiate the generator:
-```yo kyper-react```
+`yo kyper-react`
 
 
 ## Sub generators

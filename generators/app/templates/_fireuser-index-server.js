@@ -10,7 +10,7 @@ import configureStore from '../app/store/configureStore';
 
 export default (cb) => {
   //Use matter to get current user
-  let fireuser = new Fireuser('<%= appName %>');
+  let fireuser = new Fireuser('https://<%= firebaseName %>.firebaseio.com');
   // Compile an initial state
   const initialState = {
     account: fireuser.currentUser,

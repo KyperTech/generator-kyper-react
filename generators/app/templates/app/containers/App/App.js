@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Actions } from 'redux-matter'
+import Actions from '../../actions'
 import './App.scss'
 
 import Navbar from '../../components/Navbar/Navbar'

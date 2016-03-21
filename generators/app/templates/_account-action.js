@@ -15,15 +15,18 @@ export function attemptLogin (loginData) {
     payload: loginData
   }
 }
+
 export function login (loginData) {
   return (dispatch, getState) => {
     dispatch(attemptLogin(loginData))
     return fireuser.login(loginData)
-    .then(loginRes => {
-      return dispatch(receiveLogin(loginData, loginRes))
-    })
+    .then(loginRes =>
+      dispatch(receiveLogin(loginData, loginRes)),
+      payload => Object.assign({}, { type: AUTH_ERR, payload })
+    )
   }
 }
+
 export function receiveLogin (loginData, account) {
   return {
     type: LOGIN_RESPONSE,
@@ -39,6 +42,7 @@ export function attemptSignup (payload) {
     payload
   }
 }
+
 export function signup (signupData) {
   return dispatch => {
     dispatch(attemptSignup(signupData))
@@ -49,13 +53,14 @@ export function signup (signupData) {
       )
   }
 }
+
 export function receiveSignup (signupData, account) {
   return {
     type: SIGNUP_RESPONSE,
     signupData,
-    account
+    account,
     receivedAt: Date.now()
- }
+  }
 }
 
 export function logout () {
@@ -65,7 +70,7 @@ export function logout () {
       .then(logoutRes =>
         dispatch(receiveLogout(logoutRes)),
         payload => Object.assign({ type: AUTH_ERR, payload })
-      })
+      )
   }
 }
 
