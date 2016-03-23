@@ -6,13 +6,15 @@ import { Actions } from '../../actions/<%= name.toLowerCase() %>'
 import './<%= name %>.scss'
 
 class <%= name %> extends Component {
-  constructor (props){
-    super(props);
+  constructor (props) {
+    super(props)
   }
+
   static propTypes = {
 
   };
-  render (){
+
+  render () {
     return (
       <div className='<%= name %>'>
 
@@ -20,14 +22,17 @@ class <%= name %> extends Component {
     )
   }
 }
-//Place state of redux store into props of component
+
+// Place state of redux store into props of component
 function mapStateToProps (state) {
   return {
     router: state.router
   }
 }
-//Place action methods into props
+
+// Place action methods into props
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Actions, dispatch)
 }
-export default connect(mapStateToProps, mapDispatchToProps)(<%= name %>);
+
+export default connect(mapStateToProps, mapDispatchToProps)(<%= name %>)

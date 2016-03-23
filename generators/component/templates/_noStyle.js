@@ -1,16 +1,19 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react'
 
-class <%= name %> extends Component {
-  constructor(props){
-    super(props);
+export default class <%= name %> extends Component {
+  constructor (props) {
+    super(props)
   }
-  render(){
+
+  static propTypes = {
+
+  };
+
+  render () {
     return (
       <div>
 
       </div>
-    );
+    )
   }
 }
-
-export default <%= name %>

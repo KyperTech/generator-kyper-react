@@ -9,12 +9,12 @@
   ],
   "repository": "https://github.com/kypertech/generator-kyper-react",
   "author": "Kyper LLC <kyper.dev@gmail.com>",
-  "contributors":[
+  "contributors": [
     {
-    "name": "Prescott Prue",
-    "email": "sprue.dev@gmail.com"
-  }
-],
+      "name": "Prescott Prue",
+      "email": "sprue.dev@gmail.com"
+    }
+  ],
   "scripts": {
     "test": "mocha"
   },
@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "chalk": "^1.0.0",
+    "change-case": "^2.3.1",
     "lodash": "^4.6.1",
     "yeoman-generator": "^0.22.5",
     "yosay": "^1.1.0"

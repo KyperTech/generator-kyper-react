@@ -1,22 +1,22 @@
-export const ADD_<%= name.toUpperCase() %> = 'ADD_<%= name.toUpperCase() %>';
-export const REMOVE_<%= name.toUpperCase() %> = 'REMOVE_<%= name.toUpperCase() %>';
-export const UPDATE_<%= name.toUpperCase() %> = 'UPDATE_<%= name.toUpperCase() %>';
+export const ADD_<%= upperCase %> = 'ADD_<%= upperCase %>';
+export const REMOVE_<%= upperCase %> = 'REMOVE_<%= upperCase %>';
+export const UPDATE_<%= upperCase %> = 'UPDATE_<%= upperCase %>';
 
-export function add<%= camelName %>(<%= name.toLowerCase() %>) {
+export function add<%= pascalCase %>(<%= lowerCase %>) {
   return {
-    type: 'ADD_<%= name.toUpperCase() %>',
-    payload: <%= name.toLowerCase() %>
+    type: 'ADD_<%= upperCase %>',
+    payload: <%= lowerCase %>
   };
 }
-export function remove<%= camelName %>(<%= name.toLowerCase() %>) {
+export function remove<%= pascalCase %>(<%= lowerCase %>) {
   return {
-    type: 'REMOVE_<%= name.toUpperCase() %>',
-    payload: <%= name.toLowerCase() %>
+    type: 'REMOVE_<%= upperCase %>',
+    payload: <%= lowerCase %>
   };
 }
-export function update<%= camelName %>(<%= name.toLowerCase() %>) {
+export function update<%= pascalCase %>(<%= lowerCase %>) {
   return {
-    type: 'UPDATE_<%= name.toUpperCase() %>',
-    payload: <%= name.toLowerCase() %>
+    type: 'UPDATE_<%= upperCase %>',
+    payload: <%= lowerCase %>
   };
 }

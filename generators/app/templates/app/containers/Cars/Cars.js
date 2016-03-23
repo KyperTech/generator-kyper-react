@@ -11,7 +11,7 @@ class Cars extends Component {
   }
 
   static propTypes = {
-    cars: PropTypes.array
+    cars: PropTypes.array,
     addCar: PropTypes.func
   };
 
