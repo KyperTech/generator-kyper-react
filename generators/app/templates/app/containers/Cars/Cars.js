@@ -1,25 +1,30 @@
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import CarsList from '../../components/CarsList/CarsList'
 import * as Actions from '../../actions/cars'
 import './Cars.scss'
 
 class Cars extends Component {
-  constructor (props){
+  constructor (props) {
     super(props)
   }
 
   static propTypes = {
-    cars: PropTypes.array
+    cars: PropTypes.array,
     addCar: PropTypes.func
-  };
+  }
 
-  render (){
+  render () {
+    const carsList = this.props.cars.map((car, i) => {
+      return <li key={ i }>{ car.name } - { car.hp }</li>
+    })
     return (
       <div className='Cars'>
         <h2>Cars</h2>
-        <CarsList cars={ this.props.cars } onCarAddClick={ this.props.addCar }/>
+        <div class='ClassList'>
+          { carsList }
+          <button onClick={ this.handleClick.bind(this) }>Add tesla</button>
+        </div>
       </div>
     )
   }

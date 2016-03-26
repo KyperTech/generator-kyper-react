@@ -14,7 +14,7 @@ class Signup extends Component {
 
   static propTypes = {
     signup: PropTypes.func
-  };
+  }
 
   render () {
     return (
@@ -25,12 +25,14 @@ class Signup extends Component {
     )
   }
 }
+
 // Place state of redux store into props of component
 function mapStateToProps (state) {
   return {
     router: state.router
   }
 }
+
 // Place action methods into props
 function mapDispatchToProps (dispatch) {
   return bindActionCreators(Actions, dispatch)

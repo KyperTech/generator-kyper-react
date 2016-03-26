@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { reduxReactRouter } from 'redux-router'
 import createRoutes from './router'
 import { Provider } from 'react-redux'
 import { browserHistory } from 'react-router'
@@ -9,7 +8,7 @@ import configureStore from './store/configureStore'
 
 const initialState = { cars: [ { name: 'First Car', type: 'Tesla', hp: 600 } ] }
 
-const store = configureStore(initialState, reduxReactRouter, createHistory)
+const store = configureStore(initialState, createHistory)
 
 let rootElement = document.getElementById('root')
 

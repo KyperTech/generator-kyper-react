@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
-import { routerStateReducer } from 'redux-router'
 import cars from './cars'
+import { routeReducer } from 'react-router-redux'
+
 const rootReducer = combineReducers({
   cars,
-  router: routerStateReducer
+  router: routeReducer
 })
 
 export default rootReducer

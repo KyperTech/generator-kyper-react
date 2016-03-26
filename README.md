@@ -9,11 +9,11 @@
 
 Generator for a React projects that use Redux and are bundled with Webpack. There are also sub-generators for Components, Containers(Redux linked component), as well as Redux Actions and Reducers.
 
-
 ## Getting Started
+
 1. Install yeoman if you don't have it: using `npm install -g yo`
 
-1. Install Generator:  `npm install -g generator-kyper-react`
+2. Install Generator:  `npm install -g generator-kyper-react`
 
 
 ## Creating a project
@@ -25,14 +25,18 @@ Generator for a React projects that use Redux and are bundled with Webpack. Ther
 
 
 ## Sub generators
-### Generated files based on [Redux Examples](https://github.com/rackt/redux)
 
+Sub generators included are run by calling `yo kyper-react:<name of sub-generator> <param1>`.
+
+Example: To call the `component` sub-generator with "SomeThing" as the first parameter write: `yo kyper-react:component SomeThing`
 
 #### Component
 
-To create a react component class named *Test* run: `yo kyper-react:component Car`
+Generates a React component along with a matching scss file and places it within `/components`
 
-Creates a folder within `/components` that matches the name provided. Below is the result of the command above being run:
+A component is best for things that will be reused in multiple places. Our example
+
+**result**
 
 ```
 /app
@@ -41,29 +45,33 @@ Creates a folder within `/components` that matches the name provided. Below is t
 ------Car.js
 ------Car.scss
 ```
-/app/components/Car.js:
-```javascript
-import React, {Component, PropTypes} from 'react';
-import './Car.scss';
 
-class Car extends Component {
-  constructor(props){
-    super(props);
+*/app/components/Car.js:*
+
+```javascript
+import React, { Component, PropTypes } from 'react'
+import './Car.scss'
+
+export default class Car extends Component {
+  constructor (props) {
+    super(props)
   }
-  render(){
+
+  render () {
     return (
       <div className="Car">
 
       </div>
-    );
+    )
   }
 }
 
-export default Car
 ```
 
 ### Redux specific
+
 #### Container
+
 **NOTE:** Containers are synonymous with *Smart Components* and *Linked-State Components*
 
 To create a container named *Cars* run: `yo kyper-react:container Cars`
@@ -80,43 +88,49 @@ Creates a folder within `/containers` that matches the name provided. Below is t
 
 /app/containers/Cars.js:
 ```javascript
-import React, {Component, PropTypes} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import React, { Component, PropTypes } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
-import * as Actions from '../../actions/cars';
-import './Cars.scss';
+import * as Actions from '../../actions/cars'
+import './Cars.scss'
 
 class Cars extends Component {
-  constructor(props){
-    super(props);
+  constructor (props) {
+    super(props)
   }
+
   static propTypes = {
 
-  };
-  render(){
+  }
+
+  render () {
     return (
       <div className="Cars">
+
       </div>
-    );
+    )
   }
 }
-//Place state of redux store into props of component
-function mapStateToProps(state) {
+
+// Place state of redux store into props of component
+function mapStateToProps (state) {
   return {
     account: state.account,
     router: state.router
-  };
+  }
 }
-//Place action methods into props
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch);
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Cars);
 
+// Place action methods into props
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators(Actions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cars)
 ```
 
 #### Action
+
 [Actions](http://redux.js.org/docs/basics/Actions.html) are functions that are called from containers to make something happen to the state (i.e add a car).
 To create a set of actions (add, update, remove) for cars run: `yo kyper-react:action cars`
 
@@ -130,34 +144,36 @@ Creates a folder within `/actions` that matches the name provided. Below is the 
 
 /app/actions/cars.js:
 ```javascript
-export const ADD_CARS = 'ADD_CARS';
-export const REMOVE_CARS = 'REMOVE_CARS';
-export const UPDATE_CARS = 'UPDATE_CARS';
+export const ADD_CARS = 'ADD_CARS'
+export const REMOVE_CARS = 'REMOVE_CARS'
+export const UPDATE_CARS = 'UPDATE_CARS'
 
-export function addCars(cars) {
+export function addCars (cars) {
   return {
     type: 'ADD_CARS',
     payload: 'cars'
-  };
+  }
 }
-export function removeCars(cars) {
+export function removeCars  (cars) {
   return {
     type: 'REMOVE_CARS',
     payload: 'cars'
-  };
+  }
 }
-export function updateCars(cars) {
+export function updateCars (cars) {
   return {
     type: 'UPDATE_CARS',
     payload: 'cars'
-  };
+  }
 }
-
 ```
 
 #### Reducer
+
 [Reducers](http://redux.js.org/docs/basics/Reducers.html) listen for actions and modify specific pieces of the state accordingly. In this example we are creating a cars reducer that manages state.cars, which is stored as an array.
+
 `yo kyper-react:reducer cars` then select array
+
 ```
 app/
 --/reducers
@@ -170,53 +186,58 @@ import {
   ADD_CAR,
   UPDATE_CAR,
   REMOVE_CAR,
-} from '../actions/cars';
-import {union, clone} from 'lodash';
+} from '../actions/cars'
 export default function cars(state = [], action) {
   switch (action.type) {
   case ADD_CAR:
     if(!action.payload){
-      console.error('Payload required to add a cars');
-      return state;
+      console.error('Payload required to add a cars')
+      return state
     }
-    return [...state, action.payload];
-    break;
+    return [...state, action.payload]
+    break
   case UPDATE_CAR:
     if(!action.index && action.payload){
-      console.error('Index and payload required to update a cars');
-      return state;
+      console.error('Index and payload required to update a cars')
+      return state
     }
     if(!state[action.name]){
-      console.error('cars with that name already exists');
-      return state;
+      console.error('cars with that name already exists')
+      return state
     }
-    let newState = clone(state);
-    newState[action.index] = action.payload;
-    return newState;
-    break;
+    let newState = clone(state)
+    newState[action.index] = action.payload
+    return newState
+    break
   case REMOVE_CAR:
     if(!action.index){
-      console.error('Index required to delete a cars');
-      return state;
+      console.error('Index required to delete a cars')
+      return state
     }
     if(!state[action.index]){
-      console.error('cars at that index does not exist');
-      return state;
+      console.error('cars at that index does not exist')
+      return state
     }
-    let newState = clone(state);
-    delete newState[action.index];
-    return newState;
-    break;
+    let newState = clone(state)
+    delete newState[action.index]
+    return newState
+    break
   default:
-    return state;
+    return state
   }
 }
 
 ```
 
+### Generated files based on [Redux Examples](https://github.com/rackt/redux)
+
+
 ## Other Reading
-* ###[Redux Docs](http://redux.js.org/)
-* ### [Redux Examples](https://github.com/rackt/redux/tree/master/examples)
+
+* #### [Redux Docs](http://redux.js.org/)
+
+* #### [Redux Examples](https://github.com/rackt/redux/tree/master/examples)
+
 
 ### Special thanks to [gaearon](https://github.com/gaearon) and [the rackt team](https://github.com/rackt) for building [redux](https://github.com/rackt/redux), and [redux router](https://github.com/rackt/redux-router)
 

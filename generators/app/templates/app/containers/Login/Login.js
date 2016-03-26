@@ -13,7 +13,7 @@ class Login extends Component {
 
   static propTypes = {
     login: PropTypes.func
-  };
+  }
 
   render () {
     return (
