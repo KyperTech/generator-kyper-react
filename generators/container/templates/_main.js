@@ -2,17 +2,18 @@ import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { Actions } from '../../actions/<%= name.toLowerCase() %>'
 import './<%= name %>.scss'
 
 class <%= name %> extends Component {
-  constructor (props){
-    super(props);
+  constructor (props) {
+    super(props)
   }
+
   static propTypes = {
 
-  };
-  render (){
+  }
+
+  render () {
     return (
       <div className='<%= name %>'>
 
@@ -28,6 +29,7 @@ function mapStateToProps (state) {
 }
 //Place action methods into props
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Actions, dispatch)
 }
-export default connect(mapStateToProps, mapDispatchToProps)(<%= name %>);
+
+export default connect(mapStateToProps, mapDispatchToProps)(<%= name %>)

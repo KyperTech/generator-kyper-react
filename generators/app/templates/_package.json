@@ -11,6 +11,15 @@
     "start": "node bin/dev-server",
     "production": "node bin/server"
   },
+  "author": "<%= githubUser %>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<%= githubUser %>/<%= appName %>"
+  },
+  "bugs": {
+    "url": "https://github.com/<%= githubUser %>/<%= appName %>/issues"
+  },
   "keywords": [
     "webpack",
     "redux",
@@ -20,26 +29,24 @@
     "matter",
     "tessellate"
   ],
-  "license": "MIT",
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "fireuser": "0.0.3",
     "history": "1.13.0",
-    "lodash": "^4.6.1",
-    "normalizr": "^1.4.0",
-    "proxy-middleware": "^0.13.1",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-modal": "^0.6.1",
-    "react-redux": "^2.1.2",
-    "react-router": "1.0.0-rc1",
-    "redux": "^3.0.0",
-    "redux-router": "1.0.0-beta3",
-    "redux-thunk": "^1.0.0",
-    "fireuser": "^0.0.2",
-    "serve-static": "^1.10.0",
-    "webpack": "^1.12.2",
-    "extract-text-webpack-plugin": "^0.8.2",
-    "source-map-support": "^0.3.3"
+    "lodash": "^4.11.1",
+    "material-ui": "0.14.4",
+    "proxy-middleware": "^0.15.0",
+    "react": "0.14.7",
+    "react-dom": "0.14.7",
+    "react-redux": "4.4.5",
+    "react-router": "2.0.0",
+    "react-router-redux": "4.0.0-rc.1",
+    "react-tap-event-plugin": "0.2.1",
+    "redux": "3.2.1",
+    "redux-thunk": "2.1.0",
+    "serve-static": "1.10.2",
+    "webpack": "1.13.0"
   },
   "devDependencies": {
     "babel-core": "^6.7.0",
