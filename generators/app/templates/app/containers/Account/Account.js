@@ -41,16 +41,15 @@ class Acccount extends Component {
 }
 
 // Place state of redux store into props of component
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
   return {
     account: state.account ? state.entities.accounts[state.account.id] : null,
     router: state.router
   }
 }
 
+
 // Place action methods into props
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch)
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Acccount)

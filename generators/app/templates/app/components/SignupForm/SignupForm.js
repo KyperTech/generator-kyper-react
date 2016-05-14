@@ -1,17 +1,27 @@
 import React, {Component, PropTypes} from 'react'
-import { Link } from 'react-router'
+import TextField from 'material-ui/lib/text-field'
+import RaisedButton from 'material-ui/lib/raised-button'
+import CircularProgress from 'material-ui/lib/circular-progress'
+import Paper from 'material-ui/lib/paper'
+import GoogleButton from '../GoogleButton/GoogleButton'
 import './SignupForm.scss'
+const fieldStyle = { width: '80%' }
+const buttonStyle = { width: '96%', marginBottom: '.5rem' }
 
 export default class SignupForm extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
-  state = {};
+  state = { errors:{} }
 
-  static propTypes = {
-    onLoginClick: PropTypes.func.isRequired
-  };
+  reset = () =>
+    this.setState({
+      errors:{},
+      username: null,
+      email: null,
+      name: null
+    })
 
   /**
    * @function handleSignup
@@ -19,9 +29,38 @@ export default class SignupForm extends Component {
    */
   handleSignup = e => {
     e.preventDefault()
-    let newAccountData = this.getState()
-    newAccountData.password = this.password ? this.password : ''
-    this.props.onLoginClick(newAccountData)
+    let newAccountData = this.state
+    if(this.requireInputs()){
+      newAccountData.password = this.password
+      newAccountData.confirm = this.confirm
+      this.props.onSignup(newAccountData)
+    }
+  }
+  /**
+   * @function requireInputs
+   * @description Confirm that all required inputs have values
+   * @return {Boolean}
+   */
+  requireInputs = () => {
+    const requiredInputs = [
+      {name: 'username', val: this.state.username},
+      {name: 'email', val: this.state.email},
+      {name: 'name', val: this.state.name},
+      {name: 'password', val: this.password},
+      {name: 'confirm', val: this.confirm},
+    ]
+    const firstError = find(requiredInputs, (input) => {
+      if(!input.val || input.val == ''){
+        return true
+      }
+    })
+    if (firstError) {
+      let errors = {}
+      errors[firstError.name] = `${capitalize(firstError.name)} is required`
+      this.setState({ errors })
+      return false
+    }
+    return true
   }
   /**
    * @function handleInputChange
@@ -36,63 +75,54 @@ export default class SignupForm extends Component {
   }
 
   /**
-   * @function handleUsernameChange
+   * @function handlePrivateChange
    * @description Store private values.
+   * @fires context#setState
    */
   handlePrivateChange = (name, e) => {
     e.preventDefault()
     this[name] = e.target.value
   }
 
+  googleSignup = () => {
+    this.props.signup('google')
+  }
+
   render () {
     return (
-      <form className="SignupForm" onSubmit={this.handleSignup}>
-        <div className="SignupForm-Input-Wrapper">
-          <span className="SignupForm-Label">Username</span>
-          <input
-            className="SignupForm-Input"
-            onChange={this.handleInputChange.bind(this, 'username')}
+      <form className="SignupForm" onSubmit={ this.handleSignup }>
+        <TextField
+          hintText="username"
+          floatingLabelText="Username"
+          onChange={this.handleInputChange.bind(this, 'username')}
+          errorText={ this.state.errors.username }
+          style={ fieldStyle }
+        />
+        <TextField
+          hintText="email"
+          floatingLabelText="Email"
+          onChange={this.handleInputChange.bind(this, 'email')}
+          errorText={ this.state.errors.email }
+          style={ fieldStyle }
+        />
+        <TextField
+          hintText="password"
+          floatingLabelText="Password"
+          onChange={ this.handlePrivateChange.bind(this, 'password') }
+          errorText={ this.state.errors.password }
+          style={ fieldStyle }
+          type="password"
+        />
+        <div className="SignupForm-Submit">
+          <RaisedButton
+            label="Sign Up"
+            primary={true}
+            type="submit"
+            disabled={ this.props.account && this.props.account.isFetching}
+            style={ buttonStyle }
           />
         </div>
-        <div className="input-wrapper">
-          <span className="SignupForm-Label">Email</span>
-          <input
-            className="SignupForm-Input"
-            onChange={this.handleInputChange.bind(this, 'email')}
-          />
-        </div>
-        <div className="input-wrapper">
-          <span className="SignupForm-Label">Name</span>
-          <input
-            className="SignupForm-Input"
-            onChange={this.handleInputChange.bind(this, 'name')}
-          />
-        </div>
-        <div className="input-wrapper">
-          <span className="SignupForm-Label">Password</span>
-          <input
-            className="SignupForm-Input"
-            type='password'
-            onChange={this.handlePrivateChange.bind(this, 'password')}
-          />
-        </div>
-        <div className="input-wrapper">
-          <span className="SignupForm-Label">Confirm</span>
-          <input
-            className="SignupForm-Input"
-            type='password'
-            onChange={this.handlePrivateChange.bind(this, 'confirm')}
-          />
-        </div>
-        <div className="input-wrapper">
-          <button className="Button SignupForm-Button" type="submit">
-            Signup
-          </button>
-          <button className="Button SignupForm-Button" type="reset">
-            Cancel
-          </button>
-        </div>
-     </form>
+      </form>
     )
   }
 }

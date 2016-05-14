@@ -14,6 +14,12 @@ class Cars extends Component {
     addCar: PropTypes.func
   }
 
+  handleClick = () => {
+    //TODO: Call action to add car
+    console.log('action should be called to add car')
+    console.warn('action not enabled')
+  }
+
   render () {
     const carsList = this.props.cars.map((car, i) => {
       return <li key={ i }>{ car.name } - { car.hp }</li>
@@ -21,7 +27,7 @@ class Cars extends Component {
     return (
       <div className='Cars'>
         <h2>Cars</h2>
-        <div class='ClassList'>
+        <div className='ClassList'>
           { carsList }
           <button onClick={ this.handleClick.bind(this) }>Add tesla</button>
         </div>
@@ -30,7 +36,7 @@ class Cars extends Component {
   }
 }
 // Place state of redux store into props of component
-function mapStateToProps (state) {
+const mapStateToProps = (state) => {
   return {
     cars: state.cars,
     router: state.router
@@ -38,8 +44,6 @@ function mapStateToProps (state) {
 }
 
 // Place action methods into props
-function mapDispatchToProps (dispatch) {
-  return bindActionCreators(Actions, dispatch)
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators(Actions, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cars)

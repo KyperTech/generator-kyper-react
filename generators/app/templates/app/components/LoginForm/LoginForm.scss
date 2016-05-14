@@ -1,49 +1,75 @@
 @import '../../variables';
-
 .LoginForm {
-  flex-grow:1;
-  flex-basis: 35%;
-  min-width: 250px;
-  font-size: 1.4rem;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  &-Group {
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  margin: .2rem;
+  &-Submit {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    width: 30%;
+    min-width: 192px;
+    margin-top: 1.5rem;
+    text-align: center;
+    color: $linkBlue;
+    align-items: center;
     flex-direction: column;
-    padding: 10px;
   }
-  &-Label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  &-Input {
-    font-size: 1.3rem;
+  &-Options {
+    margin-top: 2rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
-    border: 0px;
-    background-color: inherit;
-    border-bottom: solid 3px;
-    border-color: black;
-    &:focus {
-      border-color: $secondary;
-      outline: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+  }
+  &-Remember {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 50%;
+  }
+  &-Recover-Link {
+    display: inline;
+    font-size: .8rem;
+    color: $linkBlue;
+    &:hover {
+      text-decoration: underline;
     }
   }
-  &-Buttons {
-    margin-top: 1.5rem;
-    flex-basis: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  &-Progress {
+    margin-top: 5rem;
   }
-  &-Login {
-    background-color: $secondary;
+  @media screen and (max-width: 958px){
+    &-Recover-Link {
+      font-size: 1rem;
+    }
+    &-Options {
+      flex-direction: column;
+    }
+    &-Remember {
+      display: none;
+    }
   }
-  &-Signup {
-    font-size: 1rem;
-    margin-top: 1rem;
-    text-align: center;
+  @media screen and (max-width: 1000px){
+    &-Options {
+      flex-direction: column;
+    }
+    &-Remember {
+      display: none;
+    }
   }
 }
