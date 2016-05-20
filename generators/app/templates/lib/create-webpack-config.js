@@ -114,7 +114,12 @@ function createWebpackConfig (options) {
     {
       test: /\.json$/,
       loader: 'json'
-    }
+    },
+    // npm i --save-dev url-loader file-loader
+    // {
+    //   test: /\.(otf|eot|svg|ttf|woff|woff2).*$/,
+    //   loader: 'url?limit=8192'
+    // }
   ]
   return {
     bail: !options.dev,

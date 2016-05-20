@@ -29,6 +29,21 @@ module.exports = yeoman.Base.extend({
       },
       {
         type: 'confirm',
+        name: 'includeTravis',
+        message: 'Would to include config for Travis CI?',
+        default: true
+      },
+      // {
+      //   type: 'confirm',
+      //   name: 'includeHeroku',
+      //   message: 'Would you like to config to deploy to Heroku?',
+      //   default: true,
+      //   when: function (answers) {
+      //     return answers.includeTravis
+      //   }
+      // },
+      {
+        type: 'confirm',
         name: 'includeFireuser',
         message: 'Would you like to include Fireuser(User/Session management built on Firebase)?',
         default: true
@@ -81,12 +96,16 @@ module.exports = yeoman.Base.extend({
       var projectFilesArray = [
         { src: '_package.json', dest: 'package.json' },
         { src: '_README.md', dest: 'README.md' },
+        { src: '_Procfile', dest: 'Procfile' },
         { src: 'webpack-dev.config.js' },
         { src: 'webpack-production.config.js' },
         { src: 'webpack-server-production.config.js' },
         { src: 'gitignore', dest: '.gitignore' },
         { src: 'babelrc', dest: '.babelrc' }
       ]
+      if (this.answers.includeTravis) {
+        projectFilesArray.push({ src: '_travis.yml', dest: '.travis.yml' })
+      }
       this.copyFiles(projectFilesArray)
     }
   },
