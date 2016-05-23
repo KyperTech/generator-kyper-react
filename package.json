@@ -1,6 +1,6 @@
 {
   "name": "generator-kyper-react",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Generator for React/Redux projects that includes sub generators for Actions, Reducers, Components, and Containers.",
   "license": "MIT",
   "main": "generators/app/index.js",
@@ -25,7 +25,8 @@
     "redux",
     "react",
     "react-redux",
-    "redux-matter"
+    "es6",
+    "firebase"
   ],
   "dependencies": {
     "chalk": "^1.0.0",

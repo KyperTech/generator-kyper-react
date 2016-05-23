@@ -1,19 +1,19 @@
 'use strict'
 
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var fs = require('fs')
-var path = require('path')
-var webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const fs = require('fs')
+const path = require('path')
+const webpack = require('webpack')
 
-var buildPath = 'build'
-var publicPath = 'assets'
-var port = process.env.PORT || 3000
-var webpackPort = process.env.WEBPACK_PORT || 3001
+const buildPath = 'build'
+const publicPath = 'assets'
+const port = process.env.PORT || 3000
+const webpackPort = process.env.WEBPACK_PORT || 3001
 
 function createWebpackConfig (options) {
   if (!options) { options = {} }
 
-  var devtool = options.dev ? 'eval-source-map' : 'sourcemap'
+  const devtool = options.dev ? 'eval-source-map' : 'sourcemap'
 
   var entry = options.entry || [
     './app/client.js'
@@ -26,7 +26,7 @@ function createWebpackConfig (options) {
     )
   }
 
-  var output = {
+  const output = {
     path: path.resolve(__dirname, '..', buildPath),
     filename: options.outputFilename || (options.dev ? 'bundle.js' : 'bundle.[hash].js'),
     publicPath: options.dev
@@ -44,11 +44,20 @@ function createWebpackConfig (options) {
   if (options.dev) {
     plugins = plugins.concat(new webpack.HotModuleReplacementPlugin())
   } else {
-    plugins = plugins.concat(new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }))
+    plugins = plugins.concat(
+      [
+        new webpack.DefinePlugin({
+          'process.env': {
+            NODE_ENV: JSON.stringify('production')
+          }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+          compress: {
+            warnings: false
+          }
+        }),
+      ]
+    )
   }
 
   if (options.target === 'node') {
@@ -57,7 +66,6 @@ function createWebpackConfig (options) {
         {raw: true, entryOnly: false}))
   } else {
     plugins = plugins.concat([
-      new webpack.optimize.UglifyJsPlugin(),
       new webpack.optimize.DedupePlugin(),
       function () {
         this.plugin('done', function (stats) {
@@ -80,20 +88,20 @@ function createWebpackConfig (options) {
     ])
   }
 
-  var resolve = {
+  const resolve = {
     alias: {
       assets: path.resolve(__dirname, '..', 'assets')
     },
     extensions: ['', '.js']
   }
 
-  var cssLoaders = [
+  const cssLoaders = [
     'css?root=..',
     'sass?outputStyle=expanded&' +
     'includePaths[]=' + path.resolve(__dirname, 'bower_components')
   ].join('!')
 
-  var loaders = [
+  const loaders = [
     {
       exclude: /node_modules/,
       test: /\.js$/,
@@ -108,6 +116,7 @@ function createWebpackConfig (options) {
       : ExtractTextPlugin.extract(cssLoaders)
     },
     {
+      exclude: /node_modules/,
       test: /\.(jpg|png|svg)$/,
       loader: 'url?limit=8192'
     },
@@ -128,7 +137,7 @@ function createWebpackConfig (options) {
     output: output,
     plugins: plugins,
     resolve: resolve,
-    module: {loaders: loaders},
+    module: { loaders: loaders },
     target: options.target,
 
     port: port,

@@ -96,7 +96,7 @@ module.exports = yeoman.Base.extend({
       var projectFilesArray = [
         { src: '_package.json', dest: 'package.json' },
         { src: '_README.md', dest: 'README.md' },
-        { src: '_Procfile', dest: 'Procfile' },
+        { src: 'Procfile', dest: 'Procfile' },
         { src: 'webpack-dev.config.js' },
         { src: 'webpack-production.config.js' },
         { src: 'webpack-server-production.config.js' },

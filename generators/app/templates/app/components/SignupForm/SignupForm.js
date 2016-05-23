@@ -3,7 +3,6 @@ import TextField from 'material-ui/lib/text-field'
 import RaisedButton from 'material-ui/lib/raised-button'
 import CircularProgress from 'material-ui/lib/circular-progress'
 import Paper from 'material-ui/lib/paper'
-import GoogleButton from '../GoogleButton/GoogleButton'
 import './SignupForm.scss'
 const fieldStyle = { width: '80%' }
 const buttonStyle = { width: '96%', marginBottom: '.5rem' }

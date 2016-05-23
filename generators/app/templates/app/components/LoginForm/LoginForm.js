@@ -4,7 +4,6 @@ import TextField from 'material-ui/lib/text-field'
 import RaisedButton from 'material-ui/lib/raised-button'
 import CircularProgress from 'material-ui/lib/circular-progress'
 import Checkbox from 'material-ui/lib/checkbox'
-import GoogleButton from '../GoogleButton/GoogleButton'
 import './LoginForm.scss'
 
 const fieldStyle = { width: '80%' }
